@@ -1,0 +1,16 @@
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+{
+	BasedOnStyle: LLVM,
+	UseTab: ForContinuationAndIndentation,
+	IndentWidth: 4,
+	TabWidth: 4,
+	BreakBeforeBraces: Allman,
+	AllowShortIfStatementsOnASingleLine: false,
+	IndentCaseLabels: false,
+	ColumnLimit: 0,
+	AccessModifierOffset: -4,
+	NamespaceIndentation: All,
+	FixNamespaceComments: true,
+	PointerAlignment: Left,
+	BreakConstructorInitializers: AfterColon,
+}

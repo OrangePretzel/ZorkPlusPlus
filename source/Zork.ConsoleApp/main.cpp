@@ -1,32 +1,12 @@
 #include <iostream>
 
-#define FMT_HEADER_ONLY
-#include "fmt/format.h"
-
-#include <Zork.Core/Common.hpp>
-
-class App
-{
-private:
-	template <typename S, typename... Args>
-	void log(const S& format_str, Args&&... args)
-	{
-		std::cout << fmt::format(format_str, args...) << std::endl;
-	}
-
-public:
-	int run(int argc, char** argv)
-	{
-		log("Hello World!");
-		return 0;
-	}
-};
+#include <Zork.Core/App.hpp>
 
 int main(int argc, char** argv)
 {
 	try
 	{
-		App app{};
+		Zork::App app{};
 		return app.run(argc, argv);
 	}
 	catch (const Zork::Exception& ex)

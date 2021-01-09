@@ -91,11 +91,11 @@ void Zork::App::performCommand(const Command& command)
 		break;
 
 	case Zork::CommandTypes::Forward:
-		_state.progress = std::min(_state.progress + 1, 20);
+		_state.progress = std::min<int>(_state.progress + 1, 20);
 		break;
 
 	case Zork::CommandTypes::Back:
-		_state.progress = std::max(_state.progress - 1, 0);
+		_state.progress = std::max<int>(_state.progress - 1, 0);
 		break;
 
 	default:

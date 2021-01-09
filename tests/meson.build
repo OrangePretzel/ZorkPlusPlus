@@ -1,0 +1,1 @@
+subdir('Zork.Core.Tests')

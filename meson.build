@@ -9,6 +9,8 @@ external_includes = include_directories('externals')
 
 subdir('source/Zork.Core')
 
+subdir('tests')
+
 # Create the executable
 # This is currently in the root meson.build to ensure the executable gets output in the correct location within the build folder
 exe_name = 'zork'

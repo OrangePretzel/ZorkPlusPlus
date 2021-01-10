@@ -7,7 +7,7 @@ BUILD_DIR="$PROJECT_DIR/build"
 . $SCRIPT_DIR/common.sh
 
 echo "==============================================================================="
-meson $BUILD_DIR --cross-file "$PROJECT_DIR/meson/ubuntu-x64.ini"
+LDFLAGS=-ldl meson $BUILD_DIR --cross-file "$PROJECT_DIR/meson/ubuntu-x64.ini" --prefix=/usr
 echo "==============================================================================="
 cd $BUILD_DIR
 ninja

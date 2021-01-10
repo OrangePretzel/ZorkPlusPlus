@@ -2,7 +2,9 @@ core_lib_name = 'zorkcorelib'
 core_lib_version = '0.0.1'
 core_lib_includes = include_directories('../../include')
 source_files = [
-	'App.cpp'
+	'Rendering/OpenGL/OpenGLRenderer.cpp',
+
+	'App.cpp',
 ]
 
 # Create the static library

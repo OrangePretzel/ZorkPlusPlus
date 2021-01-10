@@ -26,6 +26,9 @@ jobs:
         chmod +x scripts/ubuntu-x64/0_setup.sh
         scripts/ubuntu-x64/0_setup.sh
 
+        sudo apt update
+        sudo apt install libglfw3-dev libsdl2-dev libsdl2-mixer-dev
+
     - name: Build
       run: |
         chmod +x scripts/common.sh
@@ -37,3 +40,10 @@ jobs:
         chmod +x scripts/common.sh
         chmod +x scripts/ubuntu-x64/2_test.sh
         scripts/ubuntu-x64/2_test.sh
+
+    - name: Archive meson log
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: meson-logs
+        path: build/meson-logs/

@@ -6,37 +6,25 @@
 #include "fmt/format.h"
 
 #include <Zork.Core/Common.hpp>
+#include <Zork.Core/Rendering/IRenderer.hpp>
 
 namespace Zork
 {
-	struct GameState
-	{
-		int progress{0};
-	};
-
-	enum class CommandTypes
-	{
-		None,
-		Quit,
-
-		Forward,
-		Back,
-	};
-
-	struct Command
-	{
-		CommandTypes type;
-	};
-
 	class App
 	{
 	public:
+		App(IApplicationContext* appContext) :
+			_appContext(appContext)
+		{
+		}
+
 		int run(int argc, char** argv);
 
 		// Data
 	private:
 		bool _isRunning{true};
-		GameState _state{};
+		std::unique_ptr<Zork::IRenderer> _renderer{nullptr};
+		IApplicationContext* _appContext{nullptr};
 
 		// Logging
 	private:
@@ -48,7 +36,5 @@ namespace Zork
 
 		// Methods
 	public:
-		void printState();
-		void performCommand(const Command& command);
 	};
 } // namespace Zork

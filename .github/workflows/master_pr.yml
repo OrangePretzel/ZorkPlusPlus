@@ -1,0 +1,39 @@
+name: Master PR Checks
+
+on:
+  # Triggers the workflow on pull request events but for the master branch
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.9]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Setup
+      run: |
+        chmod +x scripts/common.sh
+        chmod +x scripts/ubuntu-x64/0_setup.sh
+        scripts/ubuntu-x64/0_setup.sh
+
+    - name: Build
+      run: |
+        chmod +x scripts/common.sh
+        chmod +x scripts/ubuntu-x64/1_build.sh
+        scripts/ubuntu-x64/1_build.sh
+
+    - name: Test
+      run: |
+        chmod +x scripts/common.sh
+        chmod +x scripts/ubuntu-x64/2_test.sh
+        scripts/ubuntu-x64/2_test.sh

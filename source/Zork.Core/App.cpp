@@ -5,9 +5,9 @@
 #include <chrono>
 using Clock = std::chrono::high_resolution_clock;
 
-int Zork::App::run(int argc, char** argv)
+int Zork::App::run()
 {
-	std::unique_ptr<IRenderer> renderer = std::make_unique<Zork::OpenGLRenderer>();
+	std::unique_ptr<IRenderer> renderer = std::make_unique<Zork::OpenGLRenderer>(_appContext);
 
 	auto startTime = Clock::now();
 

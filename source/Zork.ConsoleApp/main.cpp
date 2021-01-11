@@ -18,7 +18,7 @@ int main(int argc, char** argv)
 		Zork::App app(window.get());
 
 		// Run the app
-		return app.run(argc, argv);
+		return app.run();
 	}
 	catch (const Zork::Exception& ex)
 	{

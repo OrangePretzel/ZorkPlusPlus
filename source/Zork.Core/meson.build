@@ -6,10 +6,14 @@ source_files = [
 
 	'App.cpp',
 ]
+lib_dependencies = [
+	opengl_lib,
+]
 
 # Create the static library
 core_lib_static = static_library(core_lib_name,
 	sources: source_files,
+	dependencies: lib_dependencies,
 	include_directories: [external_includes, core_lib_includes]
 )
 core_lib_static_dependency = declare_dependency(
@@ -20,6 +24,7 @@ core_lib_static_dependency = declare_dependency(
 # Create the shared library
 core_lib_shared = shared_library(core_lib_name,
 	sources: source_files,
+	dependencies: lib_dependencies,
 	include_directories: [external_includes, core_lib_includes],
 	version: core_lib_version,
 	install: true

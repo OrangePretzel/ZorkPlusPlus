@@ -2,7 +2,6 @@
 
 // Include GLFW
 #define NOMINMAX // Disable the windows.h min/max macros
-#define GL3W_IMPLEMENTATION
 #include <gl3w/gl3w.h>
 
 #include <GLFW/glfw3.h>
@@ -87,9 +86,19 @@ public:
 		return glfwWindowShouldClose(_window) == GL_TRUE;
 	}
 
+	void getContextSize(int& width, int& height) override
+	{
+		glfwGetWindowSize(_window, &width, &height);
+	}
+
 	void update() override
 	{
 		glfwPollEvents();
+	}
+
+	void swapBuffers() override
+	{
+		glfwSwapBuffers(_window);
 	}
 
 private:

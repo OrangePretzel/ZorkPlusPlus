@@ -18,12 +18,11 @@ namespace Zork
 		{
 		}
 
-		int run(int argc, char** argv);
+		int run();
 
 		// Data
 	private:
 		bool _isRunning{true};
-		std::unique_ptr<Zork::IRenderer> _renderer{nullptr};
 		IApplicationContext* _appContext{nullptr};
 
 		// Logging

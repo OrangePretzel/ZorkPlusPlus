@@ -7,9 +7,8 @@ namespace Zork
 	class OpenGLRenderer : public IRenderer
 	{
 	public:
-		OpenGLRenderer()
-		{
-		}
+		OpenGLRenderer(IApplicationContext* appContext) :
+			IRenderer(appContext) {}
 
 	public:
 		void render() override;
